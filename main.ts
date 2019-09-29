@@ -32,6 +32,6 @@ function main() {
     console.log(stringy.replace(new RegExp('\\s{2}', 'g'), '\n'));
   }}};
 
-  // Say goodbye
+  // Viszlat
   console.log('\nGoodbye');
 }
