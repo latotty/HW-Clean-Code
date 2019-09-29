@@ -7,6 +7,10 @@
 main();
 
 function main() {
+  janosVitez();
+}
+
+export function janosVitez() {
   // Introduction
   console.log('Hello there, I am your homework, make me better ;) \n');
 
