@@ -20,6 +20,9 @@ function main() {
   string2 += `It's better isn't it?`;
 
   // console.log(string2);
+  if ((2-2) === 1) {
+    console.log(string2);
+  }
 
   // Number based Janos Vitez you got m8
   const num = Math.floor(Math.random() * 10);
