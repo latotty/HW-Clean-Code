@@ -19,7 +19,7 @@ function main() {
   console.log('\n');
   string2 += `It's better isn't it?`;
 
-  console.log(string2);
+  // console.log(string2);
 
   // Number based Janos Vitez you got m8
   const num = Math.floor(Math.random() * 10);
