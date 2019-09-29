@@ -1,0 +1,25 @@
+{
+  "name": "hw-clean-code",
+  "version": "1.0.0",
+  "description": "HW for clean code LvL UP",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node main.ts",
+    "test": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barna001/HW-Clean-Code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barna001/HW-Clean-Code/issues"
+  },
+  "homepage": "https://github.com/Barna001/HW-Clean-Code#readme",
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  }
+}
