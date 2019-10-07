@@ -1,44 +1,48 @@
-/*
-  Author: Burom Barna
-  Date: 2019 09 29
-  Location: Budapest
-  Purpose: Clean Code HW
-*/
-main();
+// Init string with Janos Vitez
+const JANOS_VITEZ = `"No, hogy még szebb legyen," felelt a kapitány,"  Lássunk, embereim, az áldomás után;  Papok pincéjéből van jó borunk elég,  Nézzük meg a kancsók mélységes fenekét!"`;
+// Format that sh*t
+const FORMATTED_JANOS_VITEZ = JANOS_VITEZ.replace(new RegExp('\\s{2}', 'g'), '\n');
 
-function main() {
-  janosVitez();
-}
+const isEven = (num: number): boolean => num % 2 === 0;
+const isEvenAndBetween = (num: number, down: number, up: number): boolean => num < up && num > down && isEven(num);
+const getEvenOrOddText = (isEven: boolean): string => (isEven ? 'The number is even' : 'The number is odd');
 
-export function janosVitez() {
+export const createJanosVitez = ({
+  getRandomNumberBetweenZeroAndTen,
+  log,
+}: {
+  getRandomNumberBetweenZeroAndTen: () => number;
+  log: (message?: any, ...optionalParams: any[]) => void;
+}) => () => {
   // Introduction
-  console.log('Hello there, I am your homework, make me better ;) \n');
-
-  // Init string with Janos Vitez
-  const stringy = `"No, hogy még szebb legyen," felelt a kapitány,"  Lássunk, embereim, az áldomás után;  Papok pincéjéből van jó borunk elég,  Nézzük meg a kancsók mélységes fenekét!"`;
-
-  // Format that sh*t
-  let string2 = stringy.replace(new RegExp('\\s{2}', 'g'), '\n');
-  console.log(string2);
-  console.log('\n');
-  string2 += `It's better isn't it?`;
-
-  // console.log(string2);
-  if ((2-2) === 1) {
-    console.log(string2);
-  }
+  log('Hello there, I am your homework, make me better ;) \n');
+  log(FORMATTED_JANOS_VITEZ);
+  log('\n');
 
   // Number based Janos Vitez you got m8
-  const num = Math.floor(Math.random() * 10);
-  // compute x modulo 2 and check whether it is zero, log the results
-  if (num%2 == 0) {/* the number is even */ console.log('The number is even', num);} else {/* the number is even */console.log('The number is odd', num);}
+  const num = getRandomNumberBetweenZeroAndTen();
 
-  // Don't know why even numbers between 1 and 7 but it was told to do it like this
-  if (num < 8) { if (num > 1) { if (num % 2 == 0) {
-    console.log('You are lucky, here is Janos Vitez one more time, nicely.');
-    console.log(stringy.replace(new RegExp('\\s{2}', 'g'), '\n'));
-  }}};
+  const numIsEven = isEven(num);
+  const evenOrOddText = getEvenOrOddText(numIsEven);
+  log(evenOrOddText, num);
+
+  // Don't know why even numbers between 1 and 8 but it was told to do it like this
+  if (isEvenAndBetween(num, 1, 8)) {
+    log('You are lucky, here is Janos Vitez one more time, nicely.');
+    log(FORMATTED_JANOS_VITEZ);
+  }
 
   // Viszlat
-  console.log('\nGoodbye');
-}
+  log('\nGoodbye');
+};
+
+export const janosVitez = createJanosVitez({
+  getRandomNumberBetweenZeroAndTen: () => Math.floor(Math.random() * 10),
+  log: console.log,
+});
+
+const main = () => {
+  janosVitez();
+};
+
+main();
